@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+
+<div class="container">
+    <a href="/" class="navbar-brand"><img src="http://geeklyinc.com/wp-content/uploads/2015/01/logo-Splendor.png" style="height: 35px; width: 100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse" data-target="#mobile-nav">
+        <span class="navbar-toggle-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mobile-nav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-items">
+                <a href="{{ path('index') }}" class="nav-link">Strona Główna</a>
+            </li>
+            <li class="nav-items">
+                <a href="{{ path('ranking') }}" class="nav-link">Ranking</a>
+            </li>
+            <li class="nav-items">
+                <a href="{{ path('support') }}" class="nav-link">Support</a>
+            </li>
+            <li class="nav-items">
+                <a href="{{ path('rules') }}" class="nav-link">Zasady gry</a>
+            </li>
+            <li class="nav-items">
+                <a href="{{ path('menu') }}" class="nav-link">Zarządzanie kontem</a>
+            </li>
+        </ul>
+    </div> 
+</div>
+</nav>

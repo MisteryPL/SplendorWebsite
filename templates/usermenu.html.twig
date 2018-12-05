@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Splendor{% endblock %}
+
+{% block body %}
+
+<center><h2>Witaj w menu użytkownika</h2></center></br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Użytkownik</th>
+      <th scope="col">Rozegrane partie</th>
+      <th scope="col">Wygrane partie</th>
+      <th scope="col">Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-primary">
+      <th scope="row"> {{ app.user.username }} </th>
+      <td> {{ app.user.rozegrane }} </td>
+      <td> {{ app.user.wygrane }} </td>
+      <td> {{ app.user.ratio }} </td>
+    </tr>
+  </tbody>
+</table> 
+
+<center>
+<a class="btn btn-primary btn-lg" href="{{ path('change_password') }}" role="button"> Zmień hasło </a>
+<a class="btn btn-primary btn-lg" href="{{ path('change_email') }}" role="button"> Zmień email </a>
+</center></br></br>
+
+<h2><center><a class="btn btn-primary btn-lg" href="{{ path('app_logout') }}" role="button"> Wyloguj się </a> </center> </h2>
+
+    
+{% endblock %}

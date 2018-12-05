@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ranking{% endblock %}
+
+{% block body %}
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Użytkownik</th>
+      <th scope="col">Rozegrane partie</th>
+      <th scope="col">Wygrane partie</th>
+      <th scope="col">Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts %}
+    <tr class="table-primary">
+      <th scope="row"> {{ post.username }} </th>
+      <td> {{ post.rozegrane }} </td>
+      <td> {{ post.wygrane }} </td>
+      <td> {{ post.ratio }} </td>
+    </tr>
+    {% else %}
+        <td> Brak rekordów </td>
+    {% endfor %}
+  </tbody>
+</table> 
+
+{% endblock %}

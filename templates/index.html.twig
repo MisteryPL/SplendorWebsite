@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Splendor{% endblock %}
+
+{% block body %}
+
+  {% if is_granted('ROLE_USER') %}
+
+{% else %}
+     <div class="jumbotron" style="background-image: url('https://i.ibb.co/TTHVh5c/Splendor-background.jpg'); height:100%; background-position: center; background-repeat: no-repeat; background-size: cover; color: white; text-align:center; padding-top: 20%; padding-bottom: 20%; ">
+      <h2> <a class="btn btn-primary btn-lg" href="{{ path('app_login') }}" role="button"> Zaloguj się </a> </h2></br>
+      <h3> Nie masz jeszcze konta?  </h3>
+      <h2>  <a class="btn btn-primary btn-lg" href="{{ path('app_register') }}" role="button"> Zarejestruj się </a>  </h2>
+    </div>
+{% endif %}
+
+{% endblock %}
