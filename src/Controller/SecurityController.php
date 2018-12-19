@@ -65,4 +65,44 @@ class SecurityController extends AbstractController
 
         return $this->render('security/rejestracja.html.twig');
     }
+
+    /**
+     * @Route("/profile/change_password", name="app_password_change")
+     */
+    public function change_password(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        if($request->isMethod('POST'))
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $user = $entityManager->getRepository(User::class)->find($this->getUser()->getId());  // <--------------- Tutaj poprawić
+
+            $user->setPassword($passwordEncoder->encodePassword(
+                $user,
+                $request->request->get('input_password3')
+            ));
+            $entityManager->flush();
+
+            return $this->redirectToRoute('menu');
+        }
+        return $this->render('security/change_password.html.twig');
+    }
+
+     /**
+     * @Route("/profile/change_email", name="app_email_change")
+     */
+    public function change_email(Request $request)
+    {
+        if($request->isMethod('POST'))
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $user = $entityManager->getRepository(User::class)->find($this->getUser()->getId());  // <--------------- Tutaj poprawić
+
+            $user->setEmail($request->request->get('input_email3'));
+            
+            $entityManager->flush();
+
+            return $this->redirectToRoute('menu');
+        }
+        return $this->render('security/change_email.html.twig');
+    }
 }

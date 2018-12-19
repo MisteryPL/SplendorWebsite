@@ -25,7 +25,7 @@
          */
         public function ranking()
         {
-            $posts = $this->getDoctrine()->getRepository(User::class)->findAll();
+            $posts = $this->getDoctrine()->getRepository(User::class)->findBy([], ['Ratio' => 'DESC']);;
             return $this->render('ranking.html.twig', ['posts' => $posts]);
         }
 
@@ -60,22 +60,6 @@
         public function password_recovery()
         {
             return $this->render('password_recovery.html.twig');
-        }
-
-        /**
-         * @Route("/change_email", name="change_email")
-         */
-        public function change_email()
-        {
-            return $this->render('change_email.html.twig');
-        }
-
-        /**
-         * @Route("/change_password", name="change_password")
-         */
-        public function change_password()
-        {
-            return $this->render('change_password.html.twig');
         }
 
     }
