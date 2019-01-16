@@ -59,6 +59,16 @@ class User implements UserInterface
      */
     private $Ratio;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Question;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Answer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +198,30 @@ class User implements UserInterface
     public function setRatio(float $Ratio): self
     {
         $this->Ratio = $Ratio;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?string
+    {
+        return $this->Question;
+    }
+
+    public function setQuestion(string $Question): self
+    {
+        $this->Question = $Question;
+
+        return $this;
+    }
+
+    public function getAnswer(): ?string
+    {
+        return $this->Answer;
+    }
+
+    public function setAnswer(string $Answer): self
+    {
+        $this->Answer = $Answer;
 
         return $this;
     }

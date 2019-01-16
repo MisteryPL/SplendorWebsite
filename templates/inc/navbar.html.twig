@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
 
 <div class="container">
-    <a href="/" class="navbar-brand"><img src="http://geeklyinc.com/wp-content/uploads/2015/01/logo-Splendor.png" style="height: 35px; width: 100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></a>
+    <a href="/splendor_symfony/public/" class="navbar-brand"><img src="http://geeklyinc.com/wp-content/uploads/2015/01/logo-Splendor.png" style="height: 35px; width: 100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></a>
     <button class="navbar-toggler" type="button"
     data-toggle="collapse" data-target="#mobile-nav">
         <span class="navbar-toggle-icon"></span>
@@ -10,7 +10,11 @@
     <div class="collapse navbar-collapse" id="mobile-nav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-items">
-                <a href="{{ path('index') }}" class="nav-link">Strona Główna</a>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('index') }}" class="nav-link">Menu użytkownika</a>
+                {% else %}
+                    <a href="{{ path('index') }}" class="nav-link">Strona Główna</a>
+                {% endif %}
             </li>
             <li class="nav-items">
                 <a href="{{ path('ranking') }}" class="nav-link">Ranking</a>
@@ -22,7 +26,11 @@
                 <a href="{{ path('rules') }}" class="nav-link">Zasady gry</a>
             </li>
             <li class="nav-items">
-                <a href="{{ path('menu') }}" class="nav-link">Zarządzanie kontem</a>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('app_logout') }}" class="nav-link">Wyloguj się</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="nav-link">Zaloguj się</a>
+                {% endif %}
             </li>
         </ul>
     </div> 

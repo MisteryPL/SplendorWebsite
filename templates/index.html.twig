@@ -6,12 +6,44 @@
 
   {% if is_granted('ROLE_USER') %}
 
-{% else %}
+  <center><h2>Witaj w menu użytkownika</h2></center></br>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Użytkownik</th>
+        <th scope="col">Rozegrane partie</th>
+        <th scope="col">Wygrane partie</th>
+        <th scope="col">Ratio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-primary">
+        <th scope="row"> {{ app.user.username }} </th>
+        <td> {{ app.user.rozegrane }} </td>
+        <td> {{ app.user.wygrane }} </td>
+        <td> {{ app.user.ratio }} </td>
+      </tr>
+    </tbody>
+  </table> 
+
+  <center>
+    <a class="btn btn-primary btn-lg" href="{{ path('app_password_change') }}" role="button"> Zmień hasło </a>
+    <a class="btn btn-primary btn-lg" href="{{ path('app_email_change') }}" role="button"> Zmień email </a>
+  </center></br></br>
+
+  <h2><center><a class="btn btn-primary btn-lg" href="{{ path('app_logout') }}" role="button"> Wyloguj się </a> </center> </h2>
+
+
+
+
+
+  {% else %}
      <div class="jumbotron" style="background-image: url('https://i.ibb.co/TTHVh5c/Splendor-background.jpg'); height:100%; background-position: center; background-repeat: no-repeat; background-size: cover; color: white; text-align:center; padding-top: 20%; padding-bottom: 20%; ">
       <h2> <a class="btn btn-primary btn-lg" href="{{ path('app_login') }}" role="button"> Zaloguj się </a> </h2></br>
       <h3> Nie masz jeszcze konta?  </h3>
       <h2>  <a class="btn btn-primary btn-lg" href="{{ path('app_register') }}" role="button"> Zarejestruj się </a>  </h2>
     </div>
-{% endif %}
+  {% endif %}
 
 {% endblock %}

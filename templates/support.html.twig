@@ -4,16 +4,16 @@
 
 {% block body %}
     <h2>
-    <form action="mailto:splendor.inzynierski@gmail.com" method="post">
+    <form method="post">
         <fieldset>        
             <div class="form-group">
                 <label for="input_email">Podaj swój email</label>
-                <input type="text" class="form-control" name="email" id="input_email" placeholder="Email">
+                <input type="text" class="form-control" name="input_email" id="input_email" placeholder="Email">
             </div>
 
             <div class="form-group">
                 <label for="input_problem">Opisz swój problem</label>
-                <textarea class="form-control" id="input_problem" rows="10"></textarea>
+                <textarea class="form-control" name="input_problem" id="input_problem" rows="10"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Wyślij</button>
